@@ -35,7 +35,10 @@ function playRound(playerSelection, computerSelection) {
         break;
     }
   }
+  return result;
+}
 
+function game() {
   switch (result) {
     case "tie":
       return `GG, you both had ${plays[playerSelection]}. It's a tie.`;
