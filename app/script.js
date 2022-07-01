@@ -1,7 +1,7 @@
 const plays = ["rock", "paper", "scissors"];
 
 function computerPlay() {
-  return plays[Math.floor(Math.random() * 3)];
+  return Math.floor(Math.random() * 3);
 }
 
 function playerPlay() {
@@ -73,11 +73,11 @@ function game() {
   }
   if (playerScore === 3) {
     console.log(
-      `You beat the computer! Congratulations. (${playerScore}):${computerScore}`
+      `You beat the computer! Congratulations. (${playerScore}:${computerScore})`
     );
   } else {
     console.log(
-      `You lost to the almighty Computer Lord...(${playerScore}):${computerScore}`
+      `You lost to the almighty Computer Baba...(${playerScore}:${computerScore})`
     );
   }
 }
