@@ -4,6 +4,10 @@ function computerPlay() {
   return plays[Math.floor(Math.random() * 3)];
 }
 
+function playerPlay() {
+  return 0;
+}
+
 function playRound(playerSelection, computerSelection) {
   let result = "gg";
   if (playerSelection === computerSelection) {
@@ -39,17 +43,28 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  switch (result) {
-    case "tie":
-      return `GG, you both had ${plays[playerSelection]}. It's a tie.`;
-      break;
+  let playerScore = 0;
+  let computerScore = 0;
 
-    case "win":
-      return `You win! ${plays[playerSelection]} beats ${plays[computerSelection]}`;
-      break;
+  while (playerScore < 3 && computerScore < 3) {
+    let result = playRound(playerPlay(), computerPlay());
 
-    case "loss":
-      return `You lose... ${plays[playerSelection]} loses to ${plays[computerSelection]}`;
-      break;
+    switch (result) {
+      case "tie":
+        console.log(`GG, you both had ${plays[playerSelection]}. It's a tie.`);
+        break;
+
+      case "win":
+        console.log(
+          `You win! ${plays[playerSelection]} beats ${plays[computerSelection]}`
+        );
+        break;
+
+      case "loss":
+        console.log(
+          `You lose... ${plays[playerSelection]} loses to ${plays[computerSelection]}`
+        );
+        break;
+    }
   }
 }
