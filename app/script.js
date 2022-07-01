@@ -47,7 +47,9 @@ function game() {
   let computerScore = 0;
 
   while (playerScore < 3 && computerScore < 3) {
-    let result = playRound(playerPlay(), computerPlay());
+    let playerSelection = playerPlay();
+    let computerSelection = computerPlay();
+    let result = playRound(playerSelection, computerSelection);
 
     switch (result) {
       case "tie":
@@ -58,13 +60,24 @@ function game() {
         console.log(
           `You win! ${plays[playerSelection]} beats ${plays[computerSelection]}`
         );
+        playerScore++;
         break;
 
       case "loss":
         console.log(
           `You lose... ${plays[playerSelection]} loses to ${plays[computerSelection]}`
         );
+        computerScore++;
         break;
     }
+  }
+  if (playerScore === 3) {
+    console.log(
+      `You beat the computer! Congratulations. (${playerScore}):${computerScore}`
+    );
+  } else {
+    console.log(
+      `You lost to the almighty Computer Lord...(${playerScore}):${computerScore}`
+    );
   }
 }
