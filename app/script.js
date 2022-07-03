@@ -5,7 +5,12 @@ function computerPlay() {
 }
 
 function playerPlay() {
-  return 0;
+  let play = 10;
+  while (play < 0 || play > 2) {
+    play = prompt("Choose your next play. (1:rock, 2:paper, 3:scissors)");
+    play--;
+  }
+  return play;
 }
 
 function playRound(playerSelection, computerSelection) {
