@@ -1,6 +1,8 @@
 const plays = ["rock", "paper", "scissors"];
 
 const btnRock = document.querySelector('[data-play="rock"]');
+const btnPaper = document.querySelector('[data-play="paper"]');
+const btnScissors = document.querySelector('[data-play="scissors"]');
 
 function computerPlay() {
   return Math.floor(Math.random() * 3);
