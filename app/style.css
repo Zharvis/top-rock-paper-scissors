@@ -1,14 +1,19 @@
+:root {
+  --clr-bg: hsl(0, 0%, 18%);
+  --clr-primary: hsl(44, 100%, 59%);
+}
+
 body {
   height: 100vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background-color: hsl(0, 0%, 18%);
+  background-color: var(--clr-bg);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 200%;
-  color: rgb(255, 199, 44);
+  color: var(--clr-primary);
 }
 
 .main {
@@ -19,8 +24,21 @@ body {
 }
 
 .btns {
+  /* lol */
 }
 
 .btn {
+  background: none;
+  width: 10rem;
+  color: inherit;
+  border: 2px solid var(--clr-primary);
+  padding: 1rem;
   font: inherit;
+  outline: inherit;
+  transition: ease-in-out 100ms;
+}
+
+.btn:active {
+  background-color: var(--clr-primary);
+  color: var(--clr-bg);
 }
