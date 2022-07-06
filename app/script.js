@@ -1,8 +1,8 @@
 const plays = ["rock", "paper", "scissors"];
 
-const btnRock = document.querySelector('[data-play="rock"]');
-const btnPaper = document.querySelector('[data-play="paper"]');
-const btnScissors = document.querySelector('[data-play="scissors"]');
+const btns = document.querySelectorAll("[data-play]");
+const score = document.querySelector("[data-score]");
+const text = document.querySelector("[data-text]");
 
 function computerPlay() {
   return Math.floor(Math.random() * 3);
@@ -90,3 +90,44 @@ function game() {
     );
   }
 }
+
+let playerScore = 0;
+let computerScore = 0;
+let isNewGame = true;
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    console.log(plays[btn.dataset.play]);
+
+    let playerSelection = +btn.dataset.play;
+    let computerSelection = computerPlay();
+    let result = playRound(playerSelection, computerSelection);
+
+    switch (result) {
+      case "tie":
+        text.textContent = `GG, you both had ${plays[playerSelection]}. It's a tie.`;
+        break;
+
+      case "win":
+        text.textContent = `You win! ${plays[playerSelection]} beats ${plays[computerSelection]}`;
+        playerScore++;
+        break;
+
+      case "loss":
+        text.textContent = `You lose... ${plays[playerSelection]} loses to ${plays[computerSelection]}`;
+        computerScore++;
+        break;
+    }
+    score.textContent = `${playerScore}:${computerScore}`;
+
+    if (playerScore === 3) {
+      text.textContent = "You won the game!";
+      playerScore = 0;
+      computerScore = 0;
+    } else if (computerScore === 3) {
+      text.textContent = "You lost...";
+      playerScore = 0;
+      computerScore = 0;
+    }
+  });
+});
