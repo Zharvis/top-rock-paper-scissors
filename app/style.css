@@ -23,8 +23,14 @@ body {
   text-align: center;
 }
 
-.btns {
-  /* lol */
+.display__score {
+  font-size: 10rem;
+  margin: 0;
+}
+
+.display__text {
+  margin: 0;
+  margin-bottom: 2rem;
 }
 
 .btn {
